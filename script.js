@@ -6,26 +6,26 @@ function getComputerChoice() {
 
 function playRound(playerChoice, computerChoice) {
     if (playerChoice === computerChoice) {
-        return "tie"
+        return "tie";
     }
 
     else if ((playerChoice === 'scissors' && computerChoice === 'paper')){
-        return "player"
+        return "player";
     }
 
     else if ((playerChoice === 'paper' && computerChoice === 'rock')){
-        return "player"
+        return "player";
     }
 
     else if ((playerChoice === 'rock' && computerChoice === 'scissors')){
-        return "player"
+        return "player";
     }
 
     else {
-        return "computer"
-    }
+        return "computer";
+    };
 
-}
+};
 
 function game() {
     let computerScore = 0;
@@ -52,20 +52,20 @@ function game() {
         };
         console.log(`compters score: ${computerScore}`);
         console.log(`your score: ${playerScore}`);
-    }
+    };
 
     if (computerScore > playerScore) {
-        return "game over! computer wins!"
+        return "game over! computer wins!";
     }
 
     else if (playerScore > computerScore) {
-        return "game over! you win!"
+        return "game over! you win!";
     }
 
     else {
-        return "its a tie"
-    }
+        return "its a tie";
+    };
 }
 
-let resultOfGame = game()
-console.log(resultOfGame)
+let resultOfGame = game();
+console.log(resultOfGame);
