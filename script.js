@@ -31,23 +31,41 @@ function game() {
     let computerScore = 0;
     let playerScore = 0;
 
-    let playerChoice = prompt('Rock, paper, or Scissors?').toLowerCase();
-    console.log(`Your choise was: ${playerChoice}.`);
-    let computerChoice = getComputerChoice();
-    console.log(`Computer choise was: ${computerChoice}.`);
-    let result = playRound(playerChoice, computerChoice);
-    console.log(result);
-
-    if (result === "player") {
-        playerScore ++
+    for (let i = 0; i < 5; i++){
+        let playerChoice = prompt('Rock, paper, or Scissors?').toLowerCase();
+        console.log(`Your choice was: ${playerChoice}.`);
+    
+        let computerChoice = getComputerChoice();
+        console.log(`Computer choice was: ${computerChoice}.`);
+    
+        let result = playRound(playerChoice, computerChoice);
+        if (result === "player") {
+            console.log(`${playerChoice} beats ${computerChoice}! you get a point!.`);
+            playerScore ++
+        }
+        else if (result === "computer") {
+            console.log(`${computerChoice} beats ${playerChoice}! computer gets a point!.`);
+            computerScore ++
+        }
+        else {
+            console.log(`${computerChoice} and ${playerChoice} is a tie!.`);
+        };
+        console.log(`compters score: ${computerScore}`);
+        console.log(`your score: ${playerScore}`);
     }
 
-    else if (result === "computer") {
-        computerScore ++
-    };
+    if (computerScore > playerScore) {
+        return "game over! computer wins!"
+    }
 
-    console.log(playerScore);
-    console.log(computerScore);
+    else if (playerScore > computerScore) {
+        return "game over! you win!"
+    }
+
+    else {
+        return "its a tie"
+    }
 }
 
-game()
+let resultOfGame = game()
+console.log(resultOfGame)
