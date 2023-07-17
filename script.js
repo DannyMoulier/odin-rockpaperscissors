@@ -27,17 +27,19 @@ function playRound(playerChoice, computerChoice) {
 
 };
 
-function game() {
+
+function playGame(playerChoice, computerChoice) {
     let computerScore = 0;
     let playerScore = 0;
 
-    for (let i = 0; i < 5; i++){
-        let playerChoice = prompt('Rock, paper, or Scissors?').toLowerCase();
+    // let playerChoice = prompt('Rock, paper, or Scissors?').toLowerCase();
+    // for (let i = 0; i <= 5; i++){
+    while (computerScore < 5 && playerScore < 5){
+
+
         console.log(`Your choice was: ${playerChoice}.`);
-    
-        let computerChoice = getComputerChoice();
         console.log(`Computer choice was: ${computerChoice}.`);
-    
+
         let result = playRound(playerChoice, computerChoice);
         if (result === "player") {
             console.log(`${playerChoice} beats ${computerChoice}! you get a point!.`);
@@ -49,10 +51,13 @@ function game() {
         }
         else {
             console.log(`${computerChoice} and ${playerChoice} is a tie!.`);
+            return "tie"
         };
         console.log(`compters score: ${computerScore}`);
         console.log(`your score: ${playerScore}`);
-    };
+
+        }
+
 
     if (computerScore > playerScore) {
         return "game over! computer wins!";
@@ -65,7 +70,47 @@ function game() {
     else {
         return "its a tie";
     };
-}
 
-let resultOfGame = game();
-console.log(resultOfGame);
+};
+
+
+
+// let resultOfGame = game();
+// console.log(resultOfGame);
+
+
+
+// const resultContainer = document.querySelector('#results-container');
+// const result = document.createElement('p');
+// const gameStatus = document.createElement('p');
+
+// resultContainer.append(gameStatus);
+// resultContainer.append(result);
+
+
+const buttons = document.querySelectorAll('button');
+
+buttons.forEach((button) => {
+    button.addEventListener('click', function(e) {
+        playerChoice = e.target.innerText;
+        computerChoice = getComputerChoice();
+        return playRound(playerChoice, computerChoice);
+    })}
+);
+
+
+
+
+
+
+
+
+
+
+
+// console.log(playerChoice);
+
+
+// console.log(buttons)
+
+// console.log(results)
