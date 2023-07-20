@@ -24,54 +24,76 @@ function playRound(playerChoice, computerChoice) {
     else {
         return "computer";
     };
-
 };
 
+function playGame(e) {
+    while (playerScore < 5 && computerScore < 5) {
+        const playerChoice = e.target.alt;
+        const computerChoice = getComputerChoice();
 
-function playGame(playerChoice, computerChoice) {
-    let computerScore = 0;
-    let playerScore = 0;
+        console.log(`Round ${rounds}`);
 
-    // let playerChoice = prompt('Rock, paper, or Scissors?').toLowerCase();
-    // for (let i = 0; i <= 5; i++){
-    while (computerScore < 5 && playerScore < 5){
+        playerChoiceLine.innerText = playerChoice
+        computerChoiceLine.innerText = computerChoice
 
+        const result = playRound(playerChoice, computerChoice);
 
-        console.log(`Your choice was: ${playerChoice}.`);
-        console.log(`Computer choice was: ${computerChoice}.`);
-
-        let result = playRound(playerChoice, computerChoice);
         if (result === "player") {
-            console.log(`${playerChoice} beats ${computerChoice}! you get a point!.`);
+            secondaryInfo.innerText = `${playerChoice} beats ${computerChoice}`;
             playerScore ++
         }
         else if (result === "computer") {
-            console.log(`${computerChoice} beats ${playerChoice}! computer gets a point!.`);
+            secondaryInfo.innerText = `${computerChoice} beats ${playerChoice}`
             computerScore ++
         }
         else {
-            console.log(`${computerChoice} and ${playerChoice} is a tie!.`);
-            return "tie"
+            secondaryInfo.innerText = `${computerChoice} ties with ${playerChoice}`
         };
-        console.log(`compters score: ${computerScore}`);
-        console.log(`your score: ${playerScore}`);
 
+        playerScoreLine.innerText = `Your Score: ${playerScore}`;
+        computerScoreLine.innerText = `Computer Score: ${computerScore}`;
+
+        rounds ++
+        
+        if (playerScore === 5 || computerScore === 5) {
+            if (computerScore > playerScore) {
+                finalResult.innerText = "game over! computer wins! refresh to play again";
+            }
+        
+            else if (playerScore > computerScore) {
+                finalResult.innerText = "game over! you win! refresh to play again";
+            }
+        
+            else {
+                finalResult.innerText = "its a tie. refresh to play again";
+            };
         }
-
-
-    if (computerScore > playerScore) {
-        return "game over! computer wins!";
+        return;
     }
-
-    else if (playerScore > computerScore) {
-        return "game over! you win!";
-    }
-
-    else {
-        return "its a tie";
-    };
-
 };
+
+const buttons = document.querySelectorAll('button');
+const mainInfo = document.querySelector('#main-info');
+const secondaryInfo = document.querySelector('#secondary-info');
+const gameInfoContainer = document.querySelectorAll('#game-info-container');
+const computerScoreLine = document.querySelector('#computer-score-text');
+const playerScoreLine = document.querySelector('#player-score-text');
+const playerChoiceLine = document.querySelector('#player-choice');
+const computerChoiceLine = document.querySelector('#computer-choice');
+const finalResult = document.querySelector('#final-result');
+
+let rounds = 1
+let playerScore = 0
+let computerScore = 0
+
+
+buttons.forEach((button) => {
+    button.addEventListener('click', function(e) {
+        playGame(e)
+    })}
+);
+
+
 
 
 
@@ -80,32 +102,14 @@ function playGame(playerChoice, computerChoice) {
 
 
 
-// const resultContainer = document.querySelector('#results-container');
+
+
+
 // const result = document.createElement('p');
 // const gameStatus = document.createElement('p');
 
 // resultContainer.append(gameStatus);
 // resultContainer.append(result);
-
-
-const buttons = document.querySelectorAll('button');
-
-buttons.forEach((button) => {
-    button.addEventListener('click', function(e) {
-        playerChoice = e.target.innerText;
-        computerChoice = getComputerChoice();
-        return playRound(playerChoice, computerChoice);
-    })}
-);
-
-
-
-
-
-
-
-
-
 
 
 // console.log(playerChoice);

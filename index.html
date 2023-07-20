@@ -6,16 +6,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script type="text/javascript" src="script.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="results-container">
+    <div id="header">
+        <div id="title">ROCK PAPER SCISSORS</div>
+    </div>
+
+    <div id="game-info-container">
+        <div id="main-info">Choose your weapon</div>
+            <div id="secondary-info">First to score 5 points wins the game</div>
+                <div class="scoring">
+                    <div class="score-box">
+                        <div id="player-choice"></div>
+                        <div id="player-score-text">Player Score: 0</div>
+                    </div>
+                    <div class="score-box">
+                        <div id="computer-choice"></div>
+                        <div id="computer-score-text">Computer Score: 0</div>
+                    </div>
+            </div>
+        <div id="final-result"></div>
     </div>
 
     <div id="buttons-container">
-        <button>rock</button>
-        <button>paper</button>
-        <button>scissors</button>
+        <button id="rock">
+            <img src="/icons/rock.png" alt="rock" width="100" height="100" />
+        </button>
+        <button id="paper">
+            <img src="/icons/paper.png" alt="paper" width="100" height="100" />
+        </button>
+        <button id="scissors">
+            <img src="/icons/scissors.png" alt="scissors" width="100" height="100" />
+        </button>
     </div>
-  
 </body>
+
 </html>
