@@ -76,3 +76,10 @@ button:hover {
     gap: 20px;
     color: #ffffff;
 }
+
+#final-result {
+    font-size: 20px;
+    font-weight: 800;
+    color: #ffffff;
+    margin-block: 20px;
+}
