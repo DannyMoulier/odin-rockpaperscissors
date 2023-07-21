@@ -42,14 +42,7 @@ button {
     background-color: #272e38;
     border: none;
     outline:none;
-    padding: 30px;
     border-radius: 25px;
-}
-
-button:active {
-    border-style: outset;
-    border: none;
-    outline:none;
 }
 
 button:hover {

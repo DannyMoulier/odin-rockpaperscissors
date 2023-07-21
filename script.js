@@ -33,8 +33,37 @@ function playGame(e) {
 
         console.log(`Round ${rounds}`);
 
-        playerChoiceLine.innerText = playerChoice;
-        computerChoiceLine.innerText = computerChoice;
+        // const oldPlayerChoiceIcons = document.querySelectorAll('#player-choice');
+        // const oldComputerChoiceIcons = document.querySelectorAll('#computer-choice');
+
+        // oldPlayerChoiceIcons.forEach(function(e) {
+        //     oldPlayerChoiceIcons.removeChild(e)
+        // });
+
+        // oldComputerChoiceIcons.forEach(function(e) {
+        //     oldComputerChoiceIcons.removeChild(e)
+        // });
+
+        const playerChoiceIcon = document.createElement("img");
+        playerChoiceIcon.src = `./icons/${playerChoice}.png`;
+        const computerChoiceIcon = document.createElement("img");
+        computerChoiceIcon.src = `./icons/${computerChoice}.png`;
+
+        playerChoiceIcon.style.width = "50px";
+        playerChoiceIcon.style.height = "50px";
+
+        computerChoiceIcon.style.width = "50px";
+        computerChoiceIcon.style.height = "50px";
+
+        playerChoiceLine.innerText = '';
+        playerChoiceLine.appendChild(playerChoiceIcon);
+        computerChoiceLine.innerText = '';
+        computerChoiceLine.appendChild(computerChoiceIcon);
+
+        if (computerChoiceIcon) {
+            console.log("element exists")
+        }
+
 
         const result = playRound(playerChoice, computerChoice);
 
@@ -82,6 +111,8 @@ const playerChoiceLine = document.querySelector('#player-choice');
 const computerChoiceLine = document.querySelector('#computer-choice');
 const finalResult = document.querySelector('#final-result');
 
+
+
 let rounds = 1
 let playerScore = 0
 let computerScore = 0
@@ -92,29 +123,3 @@ buttons.forEach((button) => {
         playGame(e)
     })}
 );
-
-
-
-
-
-// let resultOfGame = game();
-// console.log(resultOfGame);
-
-
-
-
-
-
-// const result = document.createElement('p');
-// const gameStatus = document.createElement('p');
-
-// resultContainer.append(gameStatus);
-// resultContainer.append(result);
-
-
-// console.log(playerChoice);
-
-
-// console.log(buttons)
-
-// console.log(results)
