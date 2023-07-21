@@ -33,8 +33,8 @@ function playGame(e) {
 
         console.log(`Round ${rounds}`);
 
-        playerChoiceLine.innerText = playerChoice
-        computerChoiceLine.innerText = computerChoice
+        playerChoiceLine.innerText = playerChoice;
+        computerChoiceLine.innerText = computerChoice;
 
         const result = playRound(playerChoice, computerChoice);
 
