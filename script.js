@@ -33,17 +33,6 @@ function playGame(e) {
 
         console.log(`Round ${rounds}`);
 
-        // const oldPlayerChoiceIcons = document.querySelectorAll('#player-choice');
-        // const oldComputerChoiceIcons = document.querySelectorAll('#computer-choice');
-
-        // oldPlayerChoiceIcons.forEach(function(e) {
-        //     oldPlayerChoiceIcons.removeChild(e)
-        // });
-
-        // oldComputerChoiceIcons.forEach(function(e) {
-        //     oldComputerChoiceIcons.removeChild(e)
-        // });
-
         const playerChoiceIcon = document.createElement("img");
         playerChoiceIcon.src = `./icons/${playerChoice}.png`;
         const computerChoiceIcon = document.createElement("img");
